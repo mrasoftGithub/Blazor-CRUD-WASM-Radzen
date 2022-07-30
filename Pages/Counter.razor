@@ -1,0 +1,30 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<p>
+    <RadzenSwitch @bind-Value=@value Change=@(args => OnChange(args, "Switch")) />
+</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+@code {
+    private int currentCount = 0;
+    bool value = true;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    void OnChange(bool? value, string name)
+    {
+        Console.WriteLine($"{name} value changed to {value}");
+    }
+
+}
